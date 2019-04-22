@@ -22,7 +22,7 @@ pipeline {
 			credentialsId: 'jenkins-digitalocean-ssh-key',
 			keyFileVariable: 'SSH_KEY'
 		    )]) {
-			sh 'ssh -i $SSH_KEY root@nspain.me docker ps'
+			sh 'ssh -i $SSH_KEY -oStrictHostKeyChecking=no root@nspain.me docker ps'
 		    }
 		}
 	    }
