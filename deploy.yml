@@ -9,7 +9,6 @@
         name: flask-hello-world
         image: "nick96/flask-hello-world:{{tag}}"
         state: started
-        recreate: true
         exposed_ports:
           - "5000"
         env:
@@ -23,5 +22,5 @@
         purge_networks: true
         networks:
           - name: "{{web_network}}"
-        command: flask run --host=0.0.0.0
+        command: --host=0.0.0.0
         
