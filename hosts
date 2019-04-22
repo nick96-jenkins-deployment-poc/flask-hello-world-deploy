@@ -4,4 +4,5 @@ nspain.me
 [all:vars]
 ansible_user=root
 ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
 
