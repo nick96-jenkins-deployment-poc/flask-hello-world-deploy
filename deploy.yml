@@ -7,7 +7,7 @@
     - name: Run web app container
       docker_container:
         name: flask-hello-world
-        image: "nick/flask-hello-world:{{tag}}"
+        image: "nick96/flask-hello-world:{{tag}}"
         exposed_ports:
           - "5000"
         env:
