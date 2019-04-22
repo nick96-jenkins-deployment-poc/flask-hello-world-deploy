@@ -8,6 +8,8 @@
       docker_container:
         name: flask-hello-world
         image: "nick96/flask-hello-world:{{tag}}"
+        state: started
+        recreate: true
         exposed_ports:
           - "5000"
         env:
