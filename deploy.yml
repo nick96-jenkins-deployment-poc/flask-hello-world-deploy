@@ -13,7 +13,6 @@
         exposed_ports:
           - "5000"
         env:
-          FLASK_HOST: "0.0.0.0"
           FLASK_PORT: "5000"
           FLASK_ENV: "production"
         labels:
@@ -24,4 +23,5 @@
         purge_networks: true
         networks:
           - name: "{{web_network}}"
+        command: flask run --host=0.0.0.0
         
