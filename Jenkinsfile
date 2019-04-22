@@ -13,7 +13,9 @@ pipeline {
 			sudo: true,
 			user: 'root',
 			inventory: "hosts",
-			extraVars: "tag=${props['tag']}"
+			extraVars: [
+			    "tag": "${props['tag']}"
+			]
 		    )
 		}
 	    }
