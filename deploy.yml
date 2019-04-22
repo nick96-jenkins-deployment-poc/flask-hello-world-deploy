@@ -1,0 +1,25 @@
+---
+- hosts: digitalocean
+  vars:
+    web_network: "web"
+  become: true
+  tasks:
+    - name: Run web app container
+      docker_container:
+        name: flask-hello-world
+        image: "nick/flask-hello-world:{{tag}}"
+        expose_ports:
+          - "5000"
+        env:
+          FLASK_HOST: "0.0.0.0"
+          FLASK_PORT: "5000"
+          FLASK_ENV: "production"
+        labels:
+          traefik.enable: "true"
+          traefik.port: "5000"
+          traefik.frontend.rule: "Host:flask.nspain.me"
+          traefik.docker.network: "{{web_network}}"
+        purge_networks: true
+        networks:
+          - name: "{{web_network}}"
+        
